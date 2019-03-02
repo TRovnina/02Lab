@@ -19,36 +19,36 @@ namespace _02Lab.Models
 
         #region Properties
 
-        public string Name
+        internal string Name
         {
             get { return _name; }
-            set
+            private set
             {
                 _name = value;
                 
             }
         }
 
-        public string Surname
+        internal string Surname
         {
             get { return _surname; }
-            set
+            private set
             {
                 _surname = value;
             }
         }
 
 
-        public DateTime Birthday
+        internal DateTime Birthday
         {
             get { return _birthday; }
-            set
+            private set
             {
                 _birthday = value;
             }
         }
 
-        public int Age
+        internal int Age
         {
             get { return _age; }
             set
@@ -57,10 +57,10 @@ namespace _02Lab.Models
             }
         }
 
-        public string Email
+        internal string Email
         {
             get { return _email; }
-            set
+            private set
             {
                 _email = value;
             }
@@ -68,7 +68,7 @@ namespace _02Lab.Models
 
         #region Read-only Properties
 
-        public bool IsAdult
+        internal bool IsAdult
         {
             get
             {
@@ -76,17 +76,17 @@ namespace _02Lab.Models
             }
         }
 
-        public string SunSign
+        internal string SunSign
         {
             get { return _sunSign; }
         }
 
-        public string ChineseSign
+        internal string ChineseSign
         {
             get { return _chineseSign; }
         }
 
-        public bool IsBirthday
+        internal bool IsBirthday
         {
             get { return DateTime.Today.Month == Birthday.Month && DateTime.Today.Day == Birthday.Day; }
         }
