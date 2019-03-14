@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
-using _02Lab.Models;
-using _02Lab.Tools;
-using _02Lab.Tools.Manager;
-using _02Lab.Tools.Navigation;
-using System.ComponentModel.DataAnnotations;
-using System.Windows;
+using _Laboratory02.Exceptions;
+using _Laboratory02.Models;
+using _Laboratory02.Tools;
+using _Laboratory02.Tools.Manager;
+using _Laboratory02.Tools.Navigation;
 
-namespace _02Lab.ViewModel
+namespace _Laboratory02.ViewModel
 {
    internal class LoginViewModel: BasicViewModel
    {
@@ -103,48 +103,35 @@ namespace _02Lab.ViewModel
 
         private async void LogInImplementation(object obj)
         {
-            bool stop = false;
+            var stop = false;
             LoaderManager.Instance.ShowLoader();
             await Task.Run(() =>
             {
                 Thread.Sleep(1000);
 
-                DateTime birthday = Convert.ToDateTime(_birthday);
-                int age = CalculateAge(birthday);
-                if (age > 135 || age < 0)
+                try
                 {
-                    MessageBox.Show("Wrong birthay! This person should not exist ");
-                    stop = true;
-                    return;
+                    var person = new Person(Name, Surname, Convert.ToDateTime(_birthday), Email);
+                    StaticManager.CurrentPerson = person;
                 }
-
-                if (!new EmailAddressAttribute().IsValid(Email))
+                catch (EmailException ex)
                 {
-                    MessageBox.Show("Wrong Email!");
+                    MessageBox.Show(ex.Message);
                     stop = true;
-                    return;
                 }
-
-                Person person = new Person(Name, Surname, birthday, Email);
-                person.Age = age;
-                StaticManager.CurrentPerson = person;
+                catch (AgeException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    stop = true;
+                }
             });
 
             LoaderManager.Instance.HideLoader();
-            if (stop) return;
 
-            NavigationManager.Instance.Navigate(ViewType.PersonalInfo);
+            if (!stop)
+                NavigationManager.Instance.Navigate(ViewType.PersonalInfo);
         }
 
-        //calculate person age
-        private int CalculateAge(DateTime birthday)
-        {
-            DateTime today = DateTime.Today;
-            if ((today.Month > birthday.Month) || (today.Month == birthday.Month && today.Day >= birthday.Day))
-                return today.Year - birthday.Year;
-            
-             return today.Year - birthday.Year - 1;
-        }
 
         private void Close(object obj)
         {

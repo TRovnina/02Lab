@@ -1,9 +1,9 @@
 ﻿using System.Windows.Input;
-using _02Lab.Tools;
-using _02Lab.Tools.Manager;
-using _02Lab.Tools.Navigation;
+using _Laboratory02.Tools;
+using _Laboratory02.Tools.Manager;
+using _Laboratory02.Tools.Navigation;
 
-namespace _02Lab.ViewModel
+namespace _Laboratory02.ViewModel
 {
     internal class PersonalInfoViewModel: BasicViewModel
     { 
@@ -81,7 +81,7 @@ namespace _02Lab.ViewModel
                     return StaticManager.CurrentPerson.IsBirthday
                     + "     Happy Birthday, " + Name + "!";
 
-                return ""+StaticManager.CurrentPerson.IsBirthday;
+                return "" + StaticManager.CurrentPerson.IsBirthday;
             }
         }
 

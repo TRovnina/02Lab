@@ -1,7 +1,7 @@
-﻿using _02Lab.Tools.Navigation;
-using _02Lab.ViewModel;
+﻿using _Laboratory02.Tools.Navigation;
+using _Laboratory02.ViewModel;
 
-namespace _02Lab.View
+namespace _Laboratory02.View
 {
     /// <summary>
     /// Interaction logic for PersonalInfoView.xaml

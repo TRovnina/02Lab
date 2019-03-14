@@ -1,7 +1,7 @@
 ﻿using System;
-using _02Lab.View;
+using _Laboratory02.View;
 
-namespace _02Lab.Tools.Navigation
+namespace _Laboratory02.Tools.Navigation
 {
     internal class NavigationInitialization : NavigationModel
     {

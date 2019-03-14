@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using _Laboratory02.Exceptions;
 
-namespace _02Lab.Models
+namespace _Laboratory02.Models
 {
     internal class Person
     {
@@ -51,9 +53,12 @@ namespace _02Lab.Models
         internal int Age
         {
             get { return _age; }
-            set
+            private set
             {
-                _age = value;
+                if (!IsValidAge(value))
+                    throw new AgeException("Wrong age! This person should not exist!");
+                else
+                    _age = value;
             }
         }
 
@@ -62,9 +67,13 @@ namespace _02Lab.Models
             get { return _email; }
             private set
             {
-                _email = value;
+                if (!IsValidEmail(value))
+                    throw new EmailException("Something wrong with email!");
+                else
+                    _email = value;
             }
         }
+
 
         #region Read-only Properties
 
@@ -103,37 +112,34 @@ namespace _02Lab.Models
             Surname = surname;
             Birthday = birthday;
             Email = email;
-
+            Age = CountAge();
             _chineseSign = _chineseZodiacs[Birthday.Year % 12];
             _sunSign = GetWesternZodiac();
         }
 
 
         public Person(string name, string surname, string email)
+            : this(name, surname, DateTime.Today, email)
         {
-            Name = name;
-            Surname = surname;
-            Email = email;
-            Birthday = DateTime.Today;
-
-            _chineseSign = _chineseZodiacs[Birthday.Year % 12];
-            _sunSign = GetWesternZodiac();
+           
         }
 
         public Person(string name, string surname, DateTime birthday)
+            : this(name, surname, birthday, "")
         {
-            Name = name;
-            Surname = surname;
-            Birthday = birthday;
-            Email = "";
-
-            _chineseSign = _chineseZodiacs[Birthday.Year % 12];
-            _sunSign = GetWesternZodiac();
         }
 
         #endregion
         
+        //calculate person age
+        private int CountAge()
+        {
+            var today = DateTime.Today;
+            if (today.Month == Birthday.Month && today.Day >= Birthday.Day || today.Month > Birthday.Month)
+                return today.Year - Birthday.Year;
 
+            return today.Year - Birthday.Year - 1;
+        }
 
         //define western zodiac
         private string GetWesternZodiac()
@@ -162,6 +168,16 @@ namespace _02Lab.Models
                 return "Aquarius";
 
             return "Pisces";
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            return new EmailAddressAttribute().IsValid(email);
+        }
+
+        private bool IsValidAge(int age)
+        {
+            return age >= 0 && age <= 135;
         }
     }
 

@@ -1,7 +1,7 @@
-﻿using _02Lab.ViewModel;
-using _02Lab.Tools.Navigation;
+﻿using _Laboratory02.ViewModel;
+using _Laboratory02.Tools.Navigation;
 
-namespace _02Lab.View
+namespace _Laboratory02.View
 {
     /// <summary>
     /// Interaction logic for LoginPageControl.xaml

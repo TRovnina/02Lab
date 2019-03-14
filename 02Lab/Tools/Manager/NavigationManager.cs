@@ -1,6 +1,6 @@
-﻿using _02Lab.Tools.Navigation;
+﻿using _Laboratory02.Tools.Navigation;
 
-namespace _02Lab.Tools.Manager
+namespace _Laboratory02.Tools.Manager
 {
     internal class NavigationManager
     {

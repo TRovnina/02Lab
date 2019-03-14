@@ -1,8 +1,8 @@
-﻿using _02Lab.Tools;
-using _02Lab.Tools.Manager;
+﻿using _Laboratory02.Tools;
+using _Laboratory02.Tools.Manager;
 using System.Windows;
 
-namespace _02Lab.ViewModel
+namespace _Laboratory02.ViewModel
 {
     internal class MainWindowViewModel : BasicViewModel, ILoader
     {

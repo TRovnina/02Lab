@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 
-namespace _02Lab.Tools
+namespace _Laboratory02.Tools
 {
     internal interface ILoader : INotifyPropertyChanged
     {

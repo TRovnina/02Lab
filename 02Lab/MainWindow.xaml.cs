@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using _02Lab.Tools.Manager;
-using _02Lab.Tools.Navigation;
-using _02Lab.ViewModel;
+using _Laboratory02.Tools.Manager;
+using _Laboratory02.Tools.Navigation;
+using _Laboratory02.ViewModel;
 
-namespace _02Lab
+namespace _Laboratory02
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

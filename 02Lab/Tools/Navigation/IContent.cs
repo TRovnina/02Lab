@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace _02Lab.Tools.Navigation
+namespace _Laboratory02.Tools.Navigation
 {
     internal interface IContent
     {

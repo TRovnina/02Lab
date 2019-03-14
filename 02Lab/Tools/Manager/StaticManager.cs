@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using _02Lab.Models;
+using _Laboratory02.Models;
 
-namespace _02Lab.Tools.Manager
+namespace _Laboratory02.Tools.Manager
 {
     internal static class StaticManager
     {

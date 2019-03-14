@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace _02Lab.Tools.Manager
+namespace _Laboratory02.Tools.Manager
 {
     internal class LoaderManager
     {

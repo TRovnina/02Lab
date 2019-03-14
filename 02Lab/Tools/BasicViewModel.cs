@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace _02Lab.Tools
+namespace _Laboratory02.Tools
 {
     internal abstract class BasicViewModel : INotifyPropertyChanged
     {
