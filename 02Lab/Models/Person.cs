@@ -57,8 +57,7 @@ namespace _Laboratory02.Models
             {
                 if (!IsValidAge(value))
                     throw new AgeException("Wrong age! This person should not exist!");
-                else
-                    _age = value;
+                _age = value;
             }
         }
 
@@ -69,8 +68,7 @@ namespace _Laboratory02.Models
             {
                 if (!IsValidEmail(value))
                     throw new EmailException("Something wrong with email!");
-                else
-                    _email = value;
+                _email = value;
             }
         }
 
